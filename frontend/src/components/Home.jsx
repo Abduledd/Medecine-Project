@@ -12,6 +12,7 @@ const Home = () => {
     DiabetesPedigreeFunction: "",
     Age: "",
   });
+  const [outcome, setOutcome] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,6 +32,8 @@ const Home = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Server response:", data);
+        setOutcome(data.predicted_outcome);
+
         // Handle the response from the server as needed
       })
       .catch((error) => {
@@ -135,6 +138,15 @@ const Home = () => {
 
           <button type="submit">Submit</button>
         </form>
+
+        <h1>Diabetes Disease Prediction Result:</h1>
+        {outcome === null ? (
+          <p>Submit the form to get the prediction.</p>
+        ) : outcome === 1 ? (
+          <p>Sadly, this person has diabetes.</p>
+        ) : (
+          <p>Good news! This person doesn't have diabetes.</p>
+        )}
       </div>
     </div>
   );
