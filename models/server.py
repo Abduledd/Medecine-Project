@@ -38,10 +38,10 @@ def predict_diabetes_outcome(input_data):
 
 # Heart model
 
-df = pd.read_csv(r"C:\Users\User\Desktop\projects\Medecine Project\datasets\diabetes.csv")
+heart_df = pd.read_csv(r"C:\Users\User\Desktop\projects\Medecine Project\datasets\heart.csv")
 
-X = df.drop('Outcome', axis=1)
-Y = df['Outcome']
+X = heart_df.drop(columns='target', axis=1)
+Y = heart_df['target']
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 heart_scaler = StandardScaler()
@@ -56,25 +56,30 @@ heart_model = RandomForestClassifier()
 heart_model.fit(X_train, Y_train)
 
 def predict_heart_disease_outcome(input_data):
-    # Preprocess the input data using the same scaler
-    input_data_scaled = heart_scaler.transform(input_data.reshape(1, -1))
-    
-    # Predict the outcome
+    # Convert input data to a list and then to numpy array
+    input_data_np = np.array(list(input_data.values())).reshape(1, -1)
+    input_data_scaled = heart_scaler.transform(input_data_np)
     predicted_outcome = heart_model.predict(input_data_scaled)
-    
     return int(predicted_outcome[0])
+
+
+
+@app.route('/api/diabetes', methods=['POST'])
+def get_diabete_outcome():
+    input_data = request.get_json()
+    output = predict_diabetes_outcome(input_data)
+    return jsonify({'predicted_outcome':output})
+
 
 
 @app.route('/api/heart', methods=['POST'])
 def get_heart_outcome():
     input_data = request.get_json()
-    # Preprocess the input data
-    # input_data = np.array(input_data)  # Convert to numpy array
-    output = predict_diabetes_outcome(input_data)
-    print(output)
-    return jsonify({'predicted_outcome':output})
-
-
+    print()
+    print(input_data)
+    print()
+    output = predict_heart_disease_outcome(input_data)
+    return jsonify({'predicted_outcome': output})
 
 
 if __name__ == '__main__':
