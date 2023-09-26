@@ -3,6 +3,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+import requests
+
+
+app = Flask(__name__)
+CORS(app)
 
 
 #Diabete model
@@ -56,3 +63,14 @@ def predict_heart_disease_outcome(input_data):
     predicted_outcome = heart_model.predict(input_data_scaled)
     
     return predicted_outcome[0]
+
+
+@app.route('/api/heart', methods=['POST'])
+def get_heart_outcome():
+    return request.json()
+
+
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
