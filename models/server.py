@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
+import numpy as np
 
 
 app = Flask(__name__)
@@ -20,22 +21,20 @@ X_diab = diabete_df.drop('Outcome', axis=1)
 Y_diab = diabete_df['Outcome']
 X_train_diab, X_test_diab, Y_train, Y_test = train_test_split(X_diab, Y_diab, test_size=0.2, random_state=42)
 
-scaler = StandardScaler()
-X_train_diab = scaler.fit_transform(X_train_diab)
-X_test_diab = scaler.transform(X_test_diab)
+diabete_scaler = StandardScaler()
+X_train_diab = diabete_scaler.fit_transform(X_train_diab)
+X_test_diab = diabete_scaler.transform(X_test_diab)
 
 diabetes_model = LogisticRegression()
 
 diabetes_model.fit(X_train_diab, Y_train)
 
 def predict_diabetes_outcome(input_data):
-    # Preprocess the input data using the same scaler
-    input_data_scaled = scaler.transform(input_data.reshape(1, -1))
-    
-    # Predict the outcome
+    # Convert input data to a list and then to numpy array
+    input_data_np = np.array(list(input_data.values())).reshape(1, -1)
+    input_data_scaled = diabete_scaler.transform(input_data_np)
     predicted_outcome = diabetes_model.predict(input_data_scaled)
-    
-    return predicted_outcome[0]
+    return int(predicted_outcome[0])
 
 # Heart model
 
@@ -45,8 +44,9 @@ X = df.drop('Outcome', axis=1)
 Y = df['Outcome']
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+heart_scaler = StandardScaler()
+X_train = heart_scaler.fit_transform(X_train)
+X_test = heart_scaler.transform(X_test)
 
 
 # Initialize the model
@@ -57,17 +57,22 @@ heart_model.fit(X_train, Y_train)
 
 def predict_heart_disease_outcome(input_data):
     # Preprocess the input data using the same scaler
-    input_data_scaled = scaler.transform(input_data.reshape(1, -1))
+    input_data_scaled = heart_scaler.transform(input_data.reshape(1, -1))
     
     # Predict the outcome
     predicted_outcome = heart_model.predict(input_data_scaled)
     
-    return predicted_outcome[0]
+    return int(predicted_outcome[0])
 
 
 @app.route('/api/heart', methods=['POST'])
 def get_heart_outcome():
-    return request.json()
+    input_data = request.get_json()
+    # Preprocess the input data
+    # input_data = np.array(input_data)  # Convert to numpy array
+    output = predict_diabetes_outcome(input_data)
+    print(output)
+    return jsonify({'predicted_outcome':output})
 
 
 

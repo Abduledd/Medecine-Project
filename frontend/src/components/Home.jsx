@@ -57,7 +57,7 @@ const Home = () => {
         </Link>
       </div>{" "}
       <div className="mt-20 text-red-900">
-        <h1> heart desease</h1>
+        <h1> diabetes desease</h1>
         <form className="flex flex-col " onSubmit={handleSubmit}>
           <label>
             Pregnancies:
