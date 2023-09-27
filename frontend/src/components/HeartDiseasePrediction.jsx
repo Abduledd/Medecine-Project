@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeartDiseasePrediction = () => {
   const [formData, setFormData] = useState({
@@ -229,20 +230,25 @@ const HeartDiseasePrediction = () => {
             Submit
           </button>
         </form>
-        <div className="mb-36 p-6 rounded-2xl bg-green-700 cursor-pointer">
-          <h1 className="w-fit px-3 py-2 cursor-pointer text-2xl mb-5 bg-green-700 hover:bg-gray-800 text-black font-mono duration-700 rounded-lg">
+        <div className="mb-36 p-6 rounded-2xl bg-green-800 duration-500 cursor-pointer">
+          <h1 className="w-fit px-3 py-2 cursor-pointer text-2xl mb-5 bg-green-800  text-black font-mono duration-700 rounded-lg">
             Heart Disease Prediction Result:
           </h1>
           {outcome === null ? (
-            <p className="text-lg text-black bg-green-700">
+            <p className="text-lg text-black bg-green-800">
               Submit the form to get the prediction.
             </p>
           ) : outcome === 1 ? (
-            <p>Unfortunately, this person has heart disease.</p>
+            <p className="bg-red-800 hover:bg-red-900 duration-200 text-black font-mono rounded-lg px-3 py-1 text-xl bg-">
+              Unfortunately, this person has heart disease.
+            </p>
           ) : (
-            <p>Good news! This person doesn't have heart disease.</p>
+            <p className="bg-green-800 text-xl font-mono text-gray-950">
+              Good news! This person doesn't have heart disease.
+            </p>
           )}
         </div>
+        <Link to="/">Home</Link>
       </div>
     </div>
   );
