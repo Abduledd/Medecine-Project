@@ -48,11 +48,20 @@ const HeartDiseasePrediction = () => {
 
   return (
     <div>
+      <div className="h-7"></div>
+      <Link
+        to="/"
+        className="w-fit px-2 text-black font-semibold py-1 bg-green-800 hover:bg-green-900 duration-200 rounded-lg ml-7">
+        Back to Home
+      </Link>
       <div className="flex flex-col justify-center items-center pt-16 text-white">
-        <h1 className="mb-20 px-10 text-3xl text-green-600 font-mono">
+        <h1 className="mb-10 px-10 text-3xl text-green-600 font-mono">
           Heart Disease Prediction
         </h1>
-        <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+
+        <form
+          className="flex flex-col items-center py-8"
+          onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             <div className="mt-3 mr-2">
               <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
@@ -230,7 +239,7 @@ const HeartDiseasePrediction = () => {
             Submit
           </button>
         </form>
-        <div className="mb-36 p-6 rounded-2xl bg-green-800 duration-500 cursor-pointer">
+        <div className="mb-20 p-6 rounded-2xl bg-green-800 duration-500 cursor-pointer">
           <h1 className="w-fit px-3 py-2 cursor-pointer text-2xl mb-5 bg-green-800  text-black font-mono duration-700 rounded-lg">
             Heart Disease Prediction Result:
           </h1>
@@ -239,7 +248,7 @@ const HeartDiseasePrediction = () => {
               Submit the form to get the prediction.
             </p>
           ) : outcome === 1 ? (
-            <p className="bg-red-800 hover:bg-red-900 duration-200 text-black font-mono rounded-lg px-3 py-1 text-xl bg-">
+            <p className="bg-green-800 duration-200 text-black font-mono rounded-lg px-3 py-1 text-xl bg-">
               Unfortunately, this person has heart disease.
             </p>
           ) : (
@@ -248,7 +257,6 @@ const HeartDiseasePrediction = () => {
             </p>
           )}
         </div>
-        <Link to="/">Home</Link>
       </div>
     </div>
   );
