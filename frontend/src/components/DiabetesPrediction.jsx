@@ -21,7 +21,7 @@ const DiabetesPrediction = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form data submitted:", formData);
-    fetch("http://localhost:5000/api/heart", {
+    fetch("http://localhost:5000/api/diabetes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

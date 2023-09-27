@@ -68,6 +68,9 @@ def predict_heart_disease_outcome(input_data):
 def get_diabete_outcome():
     input_data = request.get_json()
     output = predict_diabetes_outcome(input_data)
+    print()
+    print(output)
+    print()
     return jsonify({'predicted_outcome':output})
 
 
@@ -75,9 +78,6 @@ def get_diabete_outcome():
 @app.route('/api/heart', methods=['POST'])
 def get_heart_outcome():
     input_data = request.get_json()
-    print()
-    print(input_data)
-    print()
     output = predict_heart_disease_outcome(input_data)
     return jsonify({'predicted_outcome': output})
 

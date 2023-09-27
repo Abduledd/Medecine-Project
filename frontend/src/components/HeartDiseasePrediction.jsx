@@ -47,138 +47,202 @@ const HeartDiseasePrediction = () => {
 
   return (
     <div>
-      <div className="mt-20 text-red-900">
-        <h1>Heart Disease Prediction</h1>
-        <form className="flex flex-col " onSubmit={handleSubmit}>
-          <label>
-            Age:
-            <input
-              type="text"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Sex:
-            <input
-              type="text"
-              name="sex"
-              value={formData.sex}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Chest Pain Type:
-            <input
-              type="text"
-              name="cp"
-              value={formData.cp}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Resting Blood Pressure:
-            <input
-              type="text"
-              name="trestbps"
-              value={formData.trestbps}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Serum Cholesterol:
-            <input
-              type="text"
-              name="chol"
-              value={formData.chol}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Fasting Blood Sugar:
-            <input
-              type="text"
-              name="fbs"
-              value={formData.fbs}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Resting Electrocardiographic Results:
-            <input
-              type="text"
-              name="restecg"
-              value={formData.restecg}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Maximum Heart Rate Achieved:
-            <input
-              type="text"
-              name="thalach"
-              value={formData.thalach}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Exercise Induced Angina:
-            <input
-              type="text"
-              name="exang"
-              value={formData.exang}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            ST Depression Induced by Exercise:
-            <input
-              type="text"
-              name="oldpeak"
-              value={formData.oldpeak}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Slope of the Peak Exercise ST Segment:
-            <input
-              type="text"
-              name="slope"
-              value={formData.slope}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Number of Major Vessels Colored by Fluoroscopy:
-            <input
-              type="text"
-              name="ca"
-              value={formData.ca}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Thalassemia:
-            <input
-              type="text"
-              name="thal"
-              value={formData.thal}
-              onChange={handleChange}
-            />
-          </label>
+      <div className="flex flex-col justify-center items-center pt-16 text-white">
+        <h1 className="mb-20 px-10 text-3xl text-green-600 font-mono">
+          Heart Disease Prediction
+        </h1>
+        <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Age
+                <input
+                  type="text"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
 
-          <button type="submit">Submit</button>
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Sex:
+                <input
+                  type="text"
+                  name="sex"
+                  value={formData.sex}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Chest Pain Type:
+                <input
+                  type="text"
+                  name="cp"
+                  value={formData.cp}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Resting Blood Pressure:
+                <input
+                  type="text"
+                  name="trestbps"
+                  value={formData.trestbps}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Serum Cholesterol:
+                <input
+                  type="text"
+                  name="chol"
+                  value={formData.chol}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Fasting Blood Sugar:
+                <input
+                  type="text"
+                  name="fbs"
+                  value={formData.fbs}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Resting Electrocardiographic Results:
+                <input
+                  type="text"
+                  name="restecg"
+                  value={formData.restecg}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Maximum Heart Rate Achieved:
+                <input
+                  type="text"
+                  name="thalach"
+                  value={formData.thalach}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Exercise Induced Angina:
+                <input
+                  type="text"
+                  name="exang"
+                  value={formData.exang}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                ST Depression Induced by Exercise:
+                <input
+                  type="text"
+                  name="oldpeak"
+                  value={formData.oldpeak}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Slope of the Peak Exercise ST Segment:
+                <input
+                  type="text"
+                  name="slope"
+                  value={formData.slope}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Number of Major Vessels Colored by Fluoroscopy:
+                <input
+                  type="text"
+                  name="ca"
+                  value={formData.ca}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+
+            <div className="mt-3 mr-2">
+              <label className="block w-52  text-sm font-medium text-gray-900 dark:text-white">
+                Thalassemia:
+                <input
+                  type="text"
+                  name="thal"
+                  value={formData.thal}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-44 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+              </label>
+            </div>
+          </div>
+
+          <button
+            className=" my-7 w-fit px-3 py-1 text-lg bg-green-700 rounded-lg hover:bg-green-900 duration-200"
+            type="submit">
+            Submit
+          </button>
         </form>
-
-        <h1>Heart Disease Prediction Result:</h1>
-        {outcome === null ? (
-          <p>Submit the form to get the prediction.</p>
-        ) : outcome === 1 ? (
-          <p>Unfortunately, this person has heart disease.</p>
-        ) : (
-          <p>Good news! This person doesn't have heart disease.</p>
-        )}
+        <div className="mb-36 p-6 rounded-2xl bg-green-700 cursor-pointer">
+          <h1 className="w-fit px-3 py-2 cursor-pointer text-2xl mb-5 bg-green-700 hover:bg-gray-800 text-black font-mono duration-700 rounded-lg">
+            Heart Disease Prediction Result:
+          </h1>
+          {outcome === null ? (
+            <p className="text-lg text-black bg-green-700">
+              Submit the form to get the prediction.
+            </p>
+          ) : outcome === 1 ? (
+            <p>Unfortunately, this person has heart disease.</p>
+          ) : (
+            <p>Good news! This person doesn't have heart disease.</p>
+          )}
+        </div>
       </div>
     </div>
   );
