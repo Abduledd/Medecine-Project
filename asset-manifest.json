@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Medecine-Project/static/css/main.d7a5b10f.css",
+    "main.js": "/Medecine-Project/static/js/main.57b7f608.js",
+    "static/js/787.cda612ba.chunk.js": "/Medecine-Project/static/js/787.cda612ba.chunk.js",
+    "index.html": "/Medecine-Project/index.html",
+    "main.d7a5b10f.css.map": "/Medecine-Project/static/css/main.d7a5b10f.css.map",
+    "main.57b7f608.js.map": "/Medecine-Project/static/js/main.57b7f608.js.map",
+    "787.cda612ba.chunk.js.map": "/Medecine-Project/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7a5b10f.css",
+    "static/js/main.57b7f608.js"
+  ]
+}
