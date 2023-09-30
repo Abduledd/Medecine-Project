@@ -42,6 +42,9 @@ const HeartDiseasePrediction = () => {
         setOutcome(data.predicted_outcome);
       })
       .catch((error) => {
+        alert(
+          "Please ask the host to lance the server so you can use the prediction"
+        );
         console.error("Error sending data to server:", error);
       });
   };

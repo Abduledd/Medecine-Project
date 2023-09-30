@@ -37,6 +37,9 @@ const DiabetesPrediction = () => {
         // Handle the response from the server as needed
       })
       .catch((error) => {
+        alert(
+          "Please ask the host to lance the server so you can use the prediction"
+        );
         console.error("Error sending data to server:", error);
         // Handle errors
       });
